@@ -203,3 +203,14 @@ Response:
 - **Implement Retry with Exponential Backoff and Circuit Breaker**  
   Enhance the robustness of API calls to the Bundesbank by using libraries like Resilience4j or Spring Retry with backoff strategies.
 
+
+- **Purpose of Loading Complete Historical Data at Startup (Even if Boot is Slower)**  
+    Relying on a public API for every request can slow do~~~~wn response times and introduce instability due to external dependency failures or rate limits.  
+    This design assumes high-frequency usage of the service throughout the day, so loading all historical data into the database on startup ensures:
+- Faster data retrieval
+- Minimal runtime dependency on the external API
+- More reliable and performant service overall
+
+- Future improvement could involve a hybrid approach where:
+  - Only recent data is loaded eagerly
+  - Older historical data is lazily loaded or fetched on demand and cached when using Actual Database

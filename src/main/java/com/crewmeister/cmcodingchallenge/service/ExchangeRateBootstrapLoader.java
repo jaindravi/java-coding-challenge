@@ -142,8 +142,6 @@ public class ExchangeRateBootstrapLoader {
 
         List<List<ExchangeRateDto>> partitions = partitionList(exchangeRatesList.getExchangeRates(), BATCH_SIZE);
 
-        List<CompletableFuture<Void>> futures = new ArrayList<>();
-
         for (List<ExchangeRateDto> batch : partitions) {
             CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
                 List<ExchangeRateEntity> rateEntities = new ArrayList<>();
@@ -157,7 +155,6 @@ public class ExchangeRateBootstrapLoader {
                 }
                 exchangeRateRepository.saveAll(rateEntities);
             });
-            futures.add(future);
         }
 
         return CompletableFuture.completedFuture(null);

@@ -11,6 +11,6 @@ public class FXRateConstants {
     public static final int CURRENCY_CODE_SIZE = 3;
 
     public static final String CURRENCY_CODE_API_PARAM = "BBK_STD_CURRENCY";
-    public static final int BATCH_SIZE = 100;
+    public static final int BATCH_SIZE = 1000;
 
 }
