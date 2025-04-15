@@ -17,7 +17,7 @@ This Spring Boot application provides RESTful APIs for fetching foreign exchange
 - OpenAPI/Swagger 
 - Lombok
 
-## 🔄 How This Service Works
+## How This Service Works
 
 ### 1. Application Startup
 - On startup, the application triggers a bootstrap loader that fetches:
